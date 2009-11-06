@@ -30,6 +30,12 @@ class WavesController < ApplicationController
 
   def show
     @wave = Wave.find(params[:id])
+
+    respond_to do |format|
+      format.txt {
+        render :text => @wave.to_txt + "\n"
+      }
+    end
   end
 
   def update
