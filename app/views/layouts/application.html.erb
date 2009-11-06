@@ -11,6 +11,7 @@
     <%= link_to('Home', root_path) %>
     <%- if current_user -%>
       <%= link_to(h(current_user.username), user_waves_path(current_user.username)) %>
+      <a href="<%= sinewave_bookmarklet(current_user) %>">Your bookmarklet</a>
       <%= link_to('Logout', logout_path) %>
     <%- else -%>
       <%= link_to('Sign up', new_account_path) %>
