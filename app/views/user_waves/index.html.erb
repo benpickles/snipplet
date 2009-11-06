@@ -1,0 +1,14 @@
+<h2>Waves</h2>
+
+<table>
+  <%- @waves.each do |wave| -%>
+    <tr>
+      <td><%= link_to(h(wave.command), wave) %></td>
+      <td><%=h wave.host %></td>
+      <td><%=h wave.note %></td>
+      <td><%= link_to('Edit', edit_wave_path(wave)) if wave.user == current_user %></td>
+    </tr>
+  <%- end -%>
+</table>
+
+<p><%= link_to('Create a wave', new_wave_path) %></p>

@@ -1,0 +1,19 @@
+<% form_for @wave do |f| %>
+  <%= f.error_messages %>
+  <div>
+    <%= f.label :command %>
+    <%= f.text_field :command %>
+  </div>
+  <div>
+    <%= f.label :uri %>
+    <%= f.text_field :uri %>
+  </div>
+  <div>
+    <%= f.label :note %>
+    <%= f.text_field :note %>
+  </div>
+  <div>
+    <%= submit_tag 'Save' %>
+    <%= link_to('Cancel', waves_path) %>
+  </div>
+<% end %>

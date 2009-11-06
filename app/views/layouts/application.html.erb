@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sinewave</title>
+<%= javascript_include_tag 'modernizr.min' %>
+</head>
+<body>
+<header>
+  <h1><%= link_to('Sinewave', root_path) %></h1>
+  <nav>
+    <%= link_to('Home', root_path) %>
+    <%- if current_user -%>
+      <%= link_to(h(current_user.username), user_waves_path(current_user.username)) %>
+      <%= link_to('Logout', logout_path) %>
+    <%- else -%>
+      <%= link_to('Sign up', new_account_path) %>
+      <%= link_to('Login', login_path) %>
+    <%- end -%>
+  </nav>
+</header>
+<%= yield %>
+</body>
+</html>
