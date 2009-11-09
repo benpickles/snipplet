@@ -1,10 +1,21 @@
 class WavesController < ApplicationController
-  before_filter :require_login, :only => [:create, :delete, :edit, :new, :update]
+  before_filter :require_login, :only => [:copy, :create, :delete, :edit, :new, :update]
+
+  def copy
+    original = Wave.find(params[:id])
+    @wave = current_user.waves.new
+    @wave.copy(original)
+    if @wave.save
+      redirect_to user_waves_url(current_user.username)
+    else
+      render :new
+    end
+  end
 
   def create
     @wave = current_user.waves.new(params[:wave])
     if @wave.save
-      redirect_to user_waves_url(@wave.user.username)
+      redirect_to user_waves_url(current_user.username)
     else
       render :new
     end
@@ -13,7 +24,7 @@ class WavesController < ApplicationController
   def destroy
     @wave = current_user.waves.find(params[:id])
     @wave.destroy
-    redirect user_waves_url(@wave.user.username)
+    redirect_to user_waves_url(current_user.username)
   end
 
   def edit
@@ -42,7 +53,7 @@ class WavesController < ApplicationController
     @wave = current_user.waves.find(params[:id])
     @wave.update_attributes(params[:wave])
     if @wave.save
-      redirect_to user_waves_url(@wave.user.username)
+      redirect_to user_waves_url(current_user.username)
     else
       render :edit
     end

@@ -7,6 +7,7 @@
       <td><%=h wave.note %></td>
       <td class="host">(<%=h wave.host %>)</td>
       <td><%= link_to('Edit', edit_wave_path(wave)) if wave.user == current_user %></td>
+      <td><%= copy_wave_button(wave) %></td>
     </tr>
   <%- end -%>
 </table>

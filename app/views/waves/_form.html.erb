@@ -1,4 +1,5 @@
 <% form_for @wave do |f| %>
+  <%= f.hidden_field :original_id %>
   <%= f.error_messages %>
   <div class="command">
     <%= f.label :command %>

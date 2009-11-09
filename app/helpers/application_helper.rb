@@ -16,6 +16,11 @@ module ApplicationHelper
     end
   end
 
+  def copy_wave_button(wave)
+    return unless current_user
+    button_to('Copy to my waves', copy_wave_path(wave)) if wave.user != current_user
+  end
+
   def google_analytics_javascript
     return unless Rails.env.production?
     %|<script type="text/javascript">

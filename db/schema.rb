@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091022131927) do
+ActiveRecord::Schema.define(:version => 20091109134108) do
 
   create_table "users", :force => true do |t|
     t.string   "email",             :null => false
@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(:version => 20091022131927) do
     t.string   "command"
     t.string   "note"
     t.string   "uri"
-    t.integer  "user_id",    :null => false
+    t.integer  "user_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "original_id"
   end
 
   add_index "waves", ["user_id", "command"], :name => "index_waves_on_user_id_and_command", :unique => true

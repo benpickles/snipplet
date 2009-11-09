@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :account
-  map.resources :waves
+  map.resources :waves, :member => { :copy => :post }
 
   map.root :controller => :waves
 
