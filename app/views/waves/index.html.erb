@@ -1,12 +1,12 @@
 <h2>Recent Waves</h2>
 
-<table>
+<table class="waves">
   <%- @waves.each do |wave| -%>
     <tr>
       <td><%= link_to(h(wave.user.username), user_waves_path(wave.user.username)) %></td>
-      <td><%=h wave.command %></td>
-      <td><%=h wave.host %></td>
+      <td class="command"><%= link_to(h(wave.command), wave) %></td>
       <td><%=h wave.note %></td>
+      <td class="host">(<%=h wave.host %>)</td>
     </tr>
   <%- end -%>
 </table>

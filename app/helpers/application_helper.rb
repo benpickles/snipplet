@@ -1,4 +1,21 @@
 module ApplicationHelper
+  def bookmarklet(user, text = "sinewave/#{user.username}")
+    href = 'javascript:'
+    href << "sinewave('#{user.username}');" if user
+    href << bookmarklet_href
+
+    link_to(text, href, :class => 'bookmarklet')
+  end
+
+  def bookmarklet_href
+    @@bookmarklet_href ||= begin
+      file = Rails.root.join('public', 'javascripts', 'bookmarklet.min.js')
+      js = File.read(file)
+      js.strip!
+      URI.escape(js)
+    end
+  end
+
   def google_analytics_javascript
     return unless Rails.env.production?
     %|<script type="text/javascript">
@@ -10,22 +27,5 @@ try {
 var pageTracker = _gat._getTracker("UA-117680-12");
 pageTracker._trackPageview();
 } catch(err) {}</script>|
-  end
-
-  def sinewave_bookmarklet(current_user)
-    href = 'javascript:'
-    href << "sinewave('#{current_user.username}');" if current_user
-    href << sinewave_bookmarklet_href
-    href
-  end
-
-  def sinewave_bookmarklet_href
-    @@sinewave_bookmarklet_href ||= begin
-      file = Rails.root.join('public', 'javascripts', 'bookmarklet.js')
-      js = File.read(file)
-      js.gsub!("\n", ' ')
-      js.squeeze!(' ')
-      URI.escape(js)
-    end
   end
 end

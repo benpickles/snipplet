@@ -2,24 +2,29 @@
 <html>
 <head>
 <title>Sinewave</title>
+<%= stylesheet_link_tag 'reset', 'layout', 'waves_form', :cache => 'application' %>
 <%= javascript_include_tag 'modernizr.min' %>
 </head>
 <body>
-<header>
-  <h1><%= link_to('Sinewave', root_path) %></h1>
-  <nav>
-    <%= link_to('Home', root_path) %>
-    <%- if current_user -%>
-      <%= link_to(h(current_user.username), user_waves_path(current_user.username)) %>
-      <a href="<%= sinewave_bookmarklet(current_user) %>">Your bookmarklet</a>
-      <%= link_to('Logout', logout_path) %>
-    <%- else -%>
-      <%= link_to('Sign up', new_account_path) %>
-      <%= link_to('Login', login_path) %>
-    <%- end -%>
-  </nav>
-</header>
-<%= yield %>
+<div id="container">
+  <header>
+    <h1><%= link_to('Sinewave', root_path) %></h1>
+    <nav>
+      <%= link_to('Home', root_path) %>
+      <%- if current_user -%>
+        <%= link_to(h(current_user.username), user_waves_path(current_user.username)) %>
+        <%= link_to('Logout', logout_path) %>
+        <%= bookmarklet(current_user, 'Your bookmarklet') %>
+      <%- else -%>
+        <%= link_to('Login', login_path) %> /
+        <%= link_to('Sign up', new_account_path) %>
+      <%- end -%>
+    </nav>
+  </header>
+  <div>
+    <%= yield %>
+  </div>
+</div>
 <%= google_analytics_javascript %>
 </body>
 </html>

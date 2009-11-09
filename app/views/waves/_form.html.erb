@@ -1,18 +1,18 @@
 <% form_for @wave do |f| %>
   <%= f.error_messages %>
-  <div>
+  <div class="command">
     <%= f.label :command %>
     <%= f.text_field :command %>
   </div>
-  <div>
-    <%= f.label :uri %>
+  <div class="uri">
+    <%= f.label :uri, 'URI' %>
     <%= f.text_field :uri %>
   </div>
-  <div>
+  <div class="note">
     <%= f.label :note %>
     <%= f.text_field :note %>
   </div>
-  <div>
+  <div class="buttons">
     <%= submit_tag 'Save' %>
     <%= link_to('Cancel', waves_path) %>
   </div>

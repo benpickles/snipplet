@@ -1,0 +1,26 @@
+label {
+  color: #BBB;
+  font-family: "Helvetica", sans-serif;
+  font-size: 12px;
+}
+form .command {
+  float: left;
+}
+form .uri,
+form .note {
+  float: left;
+  margin-left: 10px;
+}
+form .command input {
+  width: 80px;
+}
+form .uri input {
+  width: 450px;
+}
+form .note input {
+  width: 250px;
+}
+form .buttons {
+  clear: both;
+  padding: 10px 0;
+}
