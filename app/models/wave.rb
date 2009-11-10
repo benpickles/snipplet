@@ -20,6 +20,9 @@ class Wave < ActiveRecord::Base
 
   def host
     (Addressable::URI.parse(uri).host || '').sub(/^www\./, '')
+  rescue Addressable::URI::InvalidURIError
+    # TODO: Fix for case when host has elements to be interpolated.
+    ''
   end
 
   def interpolate(s)
