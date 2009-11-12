@@ -2,6 +2,8 @@
   <%= auto_discovery_link_tag :atom, user_waves_url(@user.username, :format => :atom) %>
 <% end %>
 
+<% content_for :title do %><%=h @user.username %><% end %>
+
 <h2><%= gravatar_tag(@user) %> <%=h @user.username %> <%= bookmarklet(@user)%></h2>
 
 <table class="waves">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sinewave</title>
+<title><%= ['Sinewave', yield(:title)].compact.join(' | ') %></title>
 <%= stylesheet_link_tag 'reset', 'layout', 'waves_form' %>
 <%= javascript_include_tag 'modernizr.min' %>
 <%= yield :atom_feed -%>
