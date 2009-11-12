@@ -41,16 +41,27 @@ td {
   border-bottom: 1px solid #BBB;
   border-left: 1px solid #DDD;
   color: #888;
+  display: inline-block;
   font-size: 10px;
   font-weight: normal;
-  padding: 2px 5px;
+  height: 1em;
+  line-height: 1em;
+  margin-bottom: 4px;
+  padding: 2px 6px 3px;
   text-decoration: none;
+  vertical-align: middle;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
 }
 
 .command {
   font-family: "Monaco", fixed;
+}
+
+.gravatar {
+  border: 1px solid #EEE;
+  padding: 2px;
+  vertical-align: bottom;
 }
 
 .host {

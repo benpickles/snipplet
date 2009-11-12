@@ -2,7 +2,7 @@
   <%= auto_discovery_link_tag :atom, user_waves_url(@user.username, :format => :atom) %>
 <% end %>
 
-<h2><%=h @user.username %> <%= bookmarklet(@user)%></h2>
+<h2><%= gravatar_tag(@user) %> <%=h @user.username %> <%= bookmarklet(@user)%></h2>
 
 <table class="waves">
   <%- @waves.each do |wave| -%>
