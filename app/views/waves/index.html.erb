@@ -1,3 +1,7 @@
+<% content_for :atom_feed do %>
+  <%= auto_discovery_link_tag :atom, waves_url(:format => :atom) %>
+<% end %>
+
 <h2>Recent Waves</h2>
 
 <table class="waves">

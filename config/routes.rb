@@ -10,8 +10,8 @@ ActionController::Routing::Routes.draw do |map|
     users.logout 'logout', :action => :destroy
   end
 
-  map.with_options :controller => :user_waves, :path_prefix => ':username' do |m|
-    m.user_waves '',         :action => :index
-    m.user_wave  ':command', :action => :run
+  map.with_options :controller => :user_waves do |m|
+    m.user_waves ':username.:format', :action => :index
+    m.user_wave ':username/:command', :action => :run
   end
 end

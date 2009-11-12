@@ -2,7 +2,14 @@ class UserWavesController < ApplicationController
   before_filter :load_user
 
   def index
-    @waves = @user.waves.alphabetical.all(:include => :user)
+    respond_to do |format|
+      format.html {
+        @waves = @user.waves.alphabetical.all(:include => :user)
+      }
+      format.atom {
+        @waves = @user.waves.recent
+      }
+    end
   end
 
   def run
