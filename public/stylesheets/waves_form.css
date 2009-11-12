@@ -3,13 +3,13 @@ label {
   font-family: "Helvetica", sans-serif;
   font-size: 12px;
 }
-form .command {
+form .command,
+form .uri {
   float: left;
+  margin-right: 10px;
 }
-form .uri,
 form .note {
   float: left;
-  margin-left: 10px;
 }
 form .command input {
   width: 80px;

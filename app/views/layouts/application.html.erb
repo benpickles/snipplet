@@ -2,6 +2,7 @@
 <html>
 <head>
 <title><%= ['Sinewave', yield(:title)].compact.join(' | ') %></title>
+<meta name="viewport" content="width=600; initial-scale=0.8;">
 <%= stylesheet_link_tag 'reset', 'layout', 'waves_form' %>
 <%= javascript_include_tag 'modernizr.min' %>
 <%= yield :atom_feed -%>

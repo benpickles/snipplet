@@ -21,7 +21,7 @@ label {
 input[type=password],
 input[type=text] {
   border: 5px solid #EEE;
-  font-family: "Monaco", fixed;
+  font-family: Monaco, Courier, fixed;
   font-size: 16px;
   padding: 5px;
 }
@@ -51,11 +51,11 @@ td {
   text-decoration: none;
   vertical-align: middle;
   -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  -webkit-border-radius: 8px;
 }
 
 .command {
-  font-family: "Monaco", fixed;
+  font-family: Monaco, Courier, fixed;
 }
 
 .gravatar {
