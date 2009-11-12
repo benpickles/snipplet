@@ -36,7 +36,7 @@ class WavesController < ApplicationController
   end
 
   def new
-    @wave = Wave.new
+    @wave = Wave.new(params.slice(:command, :note, :uri))
   end
 
   def show

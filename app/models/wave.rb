@@ -25,11 +25,11 @@ class Wave < ActiveRecord::Base
     ''
   end
 
-  def interpolate(s)
+  def interpolate(q, location = nil)
     interpolated = uri
 
     if interpolated =~ /%\d+/
-      elems = s.split(/\s+/)
+      elems = q.split(/\s+/)
       copy = elems.dup
       interpolated.gsub!(/%\d+/) do |d|
         i = d.sub('%', '').to_i - 1
@@ -39,7 +39,8 @@ class Wave < ActiveRecord::Base
       interpolated.gsub!(/%n/, Addressable::URI.encode(copy.compact.join(' ')))
     end
 
-    interpolated.sub!(/%s/, Addressable::URI.encode(s.to_s))
+    interpolated.sub!(/%l/, Addressable::URI.encode(location.to_s))
+    interpolated.sub!(/%s/, Addressable::URI.encode(q.to_s))
     interpolated
   end
 
