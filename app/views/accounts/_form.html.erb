@@ -1,11 +1,11 @@
 <% form_for @user, :url => account_path do |f| %>
   <%= f.error_messages %>
   <div>
-    <%= f.label :email %>
+    <%= f.label :email, 'Email <span class="hint">(used for <a href="http://gravatar.com/">Gravatars</a> not SPAM)</span>' %>
     <%= f.text_field :email %>
   </div>
   <div>
-    <%= f.label :username %>
+    <%= f.label :username, 'Username <span class="hint">(must be unique, can be changed)</span>' %>
     <%= f.text_field :username %>
   </div>
   <div>

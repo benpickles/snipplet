@@ -14,7 +14,11 @@ h2 {
 }
 
 label {
+  color: #BBB;
   display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin-top: 5px;
   padding: 0 10px;
 }
 
@@ -24,6 +28,11 @@ input[type=text] {
   font-family: Monaco, Courier, fixed;
   font-size: 16px;
   padding: 5px;
+}
+
+form .hint {
+  color: #CCC;
+  font-size: 11px;
 }
 
 td {
