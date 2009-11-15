@@ -15,7 +15,30 @@ form .uri input {
 form .note input {
   width: 250px;
 }
-form .buttons {
+.buttons {
   clear: both;
   padding: 10px 0;
+}
+
+.help {
+  background: #F8F8F8;
+  border: 5px solid #EEE;
+  padding: 10px;
+}
+.help dd {
+  margin-left: 15px;
+}
+.help dt {
+  margin: 0.8em 0 0.4em 5px;
+}
+.help h3 {
+  margin-top: 0;
+}
+.help .command {
+  background: #EEE;
+  margin: 0 2px;
+  padding: 1px 3px;
+}
+.help .command:first-child {
+  margin-left: 0;
 }

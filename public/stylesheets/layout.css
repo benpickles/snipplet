@@ -12,6 +12,10 @@ h2 {
   font-size: 24px;
   margin: 10px 0;
 }
+h3 {
+  font-size: 18px;
+  margin: 0.2em 0 0.3em;
+}
 
 label {
   color: #BBB;
@@ -30,9 +34,11 @@ input[type=text] {
   padding: 5px;
 }
 
-form .hint {
-  color: #CCC;
-  font-size: 11px;
+p {
+  margin: 0.3em 0 0.5em;
+}
+p:first-child {
+  margin-top: 0;
 }
 
 td {
@@ -71,6 +77,11 @@ td {
   border: 1px solid #EEE;
   padding: 2px;
   vertical-align: bottom;
+}
+
+.hint {
+  color: #CCC;
+  font-size: 11px;
 }
 
 .host {
