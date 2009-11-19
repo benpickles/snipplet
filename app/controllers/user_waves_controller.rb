@@ -14,7 +14,7 @@ class UserWavesController < ApplicationController
 
   def run
     @wave = @user.waves.find_by_command!(params[:command])
-    redirect_to @wave.interpolate(params[:q], params[:l])
+    redirect_to @wave.interpolate(params[:q], params[:l], params[:s])
   end
 
   private

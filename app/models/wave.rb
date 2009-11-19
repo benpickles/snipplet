@@ -25,7 +25,7 @@ class Wave < ActiveRecord::Base
     ''
   end
 
-  def interpolate(q, location = nil)
+  def interpolate(q, location = nil, selected = nil)
     interpolated = uri
 
     if interpolated =~ /%\d+/
@@ -40,7 +40,8 @@ class Wave < ActiveRecord::Base
     end
 
     interpolated.sub!(/%l/, Addressable::URI.encode(location.to_s))
-    interpolated.sub!(/%s/, Addressable::URI.encode(q.to_s))
+    interpolated.sub!(/%q/, Addressable::URI.encode(q.to_s))
+    interpolated.sub!(/%s/, Addressable::URI.encode(selected.to_s))
     interpolated
   end
 

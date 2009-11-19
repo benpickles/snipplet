@@ -1,10 +1,15 @@
 require 'test_helper'
 
 class WaveTest < ActiveSupport::TestCase
+  should_belong_to :original, :user
+  should_have_many :copies
+
+  should_not_allow_mass_assignment_of :created_at, :id, :updated_at, :user_id
+
   context '#interpolate' do
     context 'with search term' do
       setup do
-        @wave = Factory(:wave, :uri => 'http://example.com/?q=%s')
+        @wave = Factory(:wave, :uri => 'http://example.com/?q=%q')
       end
 
       should 'empty' do
@@ -37,7 +42,7 @@ class WaveTest < ActiveSupport::TestCase
       end
 
       should 'numbers and string' do
-        @wave = Factory(:wave, :uri => 'http://example.com/?q=%s&a=%1&b=%2')
+        @wave = Factory(:wave, :uri => 'http://example.com/?q=%q&a=%1&b=%2')
         assert_equal 'http://example.com/?q=a%20b&a=a&b=b', @wave.interpolate('a b')
       end
 
