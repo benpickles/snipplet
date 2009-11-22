@@ -26,7 +26,7 @@ function sinewave(username) {
     'l=' + e(location.href), // FIXME: doesn't work when URL includes "&".
     'q=' + e(query.join(' ')),
     's=' + e(selectedText)
-  ]
+  ];
 
   // On your marks...
   var url = 'http://sinewaveapp.com/' + username + '/' + command + '?' + parameters.join('&');
