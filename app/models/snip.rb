@@ -1,7 +1,7 @@
-class Wave < ActiveRecord::Base
-  belongs_to :original, :class_name => 'Wave'
+class Snip < ActiveRecord::Base
+  belongs_to :original, :class_name => 'Snip'
   belongs_to :user
-  has_many :copies, :class_name => 'Wave', :dependent => :nullify, :foreign_key => 'original_id'
+  has_many :copies, :class_name => 'Snip', :dependent => :nullify, :foreign_key => 'original_id'
 
   named_scope :alphabetical, :order => 'command ASC'
   named_scope :recent, :order => 'updated_at DESC'
@@ -11,11 +11,11 @@ class Wave < ActiveRecord::Base
 
   attr_accessible :command, :note, :original_id, :uri
 
-  def copy(wave)
-    self.command = wave.command
-    self.note = wave.note
-    self.original = wave
-    self.uri = wave.uri
+  def copy(snip)
+    self.command = snip.command
+    self.note = snip.note
+    self.original = snip
+    self.uri = snip.uri
   end
 
   def host

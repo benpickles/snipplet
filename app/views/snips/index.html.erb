@@ -1,0 +1,17 @@
+<% content_for :atom_feed do %>
+  <%= auto_discovery_link_tag :atom, snips_url(:format => :atom) %>
+<% end %>
+
+<h2>Recent Snips</h2>
+
+<table class="snips">
+  <%- @snips.each do |snip| -%>
+    <tr>
+      <td><%= link_to(h(snip.user.username), user_snips_path(snip.user.username)) %></td>
+      <td class="command"><%= link_to(h(snip.command), snip) %></td>
+      <td><%=h snip.note %></td>
+      <td class="host">(<%=h snip.host %>)</td>
+      <td><%= copy_snip_button(snip) %></td>
+    </tr>
+  <%- end -%>
+</table>

@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to user_waves_url(@user.username)
+      redirect_to user_snips_url(@user.username)
     else
       render :action => :new
     end

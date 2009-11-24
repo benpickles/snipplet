@@ -1,4 +1,4 @@
-<% form_for @wave do |f| %>
+<% form_for @snip do |f| %>
   <%= f.hidden_field :original_id %>
   <%= f.error_messages %>
   <div class="command">
@@ -15,7 +15,7 @@
   </div>
   <div class="buttons">
     <%= submit_tag 'Save' %>
-    <%= link_to('Cancel', waves_path) %>
+    <%= link_to('Cancel', snips_path) %>
   </div>
 <% end %>
 

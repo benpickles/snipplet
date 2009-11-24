@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     @user_session.save do |result|
       if result
-        redirect_to user_waves_url(current_user.username)
+        redirect_to user_snips_url(current_user.username)
       else
         render :action => 'new'
       end

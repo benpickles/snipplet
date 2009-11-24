@@ -1,0 +1,21 @@
+<% content_for :atom_feed do %>
+  <%= auto_discovery_link_tag :atom, user_snips_url(@user.username, :format => :atom) %>
+<% end %>
+
+<% content_for :title do %><%=h @user.username %><% end %>
+
+<h2><%= gravatar_tag(@user) %> <%=h @user.username %> <%= bookmarklet(@user)%></h2>
+
+<table class="snips">
+  <%- @snips.each do |snip| -%>
+    <tr>
+      <td class="command"><%= link_to(h(snip.command), snip) %></td>
+      <td><%=h snip.note %></td>
+      <td class="host">(<%=h snip.host %>)</td>
+      <td><%= link_to('Edit', edit_snip_path(snip)) if snip.user == current_user %></td>
+      <td><%= copy_snip_button(snip) %></td>
+    </tr>
+  <%- end -%>
+</table>
+
+<p><%= link_to('Create a snip', new_snip_path) %></p>

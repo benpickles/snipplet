@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WaveTest < ActiveSupport::TestCase
+class SnipTest < ActiveSupport::TestCase
   should_belong_to :original, :user
   should_have_many :copies
 
@@ -8,7 +8,7 @@ class WaveTest < ActiveSupport::TestCase
 
   context '#interpolate' do
     setup do
-      @wave = Wave.new(:uri => 'http://example.com/')
+      @snip = Snip.new(:uri => 'http://example.com/')
     end
 
     should 'pass params to Interpolator and call #interpolate' do
@@ -16,7 +16,7 @@ class WaveTest < ActiveSupport::TestCase
       interpolator = mock('interpolator')
       Interpolator.expects(:new).with(params).returns(interpolator)
       interpolator.expects(:interpolate).with('http://example.com/')
-      @wave.interpolate(params)
+      @snip.interpolate(params)
     end
   end
 end

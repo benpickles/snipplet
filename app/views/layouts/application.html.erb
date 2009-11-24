@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><%= ['Sinewave', yield(:title)].compact.join(' | ') %></title>
+<title><%= ['Snipplet', yield(:title)].compact.join(' | ') %></title>
 <meta name="viewport" content="width=600; initial-scale=0.8;">
-<%= stylesheet_link_tag 'reset', 'layout', 'waves_form' %>
+<%= stylesheet_link_tag 'reset', 'layout', 'snips_form' %>
 <%= javascript_include_tag 'modernizr.min' %>
 <%= yield :atom_feed -%>
 </head>
 <body>
 <div id="container">
   <header>
-    <h1><%= link_to('Sinewave', root_path) %></h1>
+    <h1><%= link_to('Snipplet', root_path) %></h1>
     <nav>
       <%= link_to('Home', root_path) %>
       <%- if current_user -%>
-        <%= link_to(h(current_user.username), user_waves_path(current_user.username)) %>
+        <%= link_to(h(current_user.username), user_snips_path(current_user.username)) %>
         <%= link_to('Account', account_path) %>
         <%= link_to('Logout', logout_path) %>
         <%= bookmarklet(current_user, 'Your bookmarklet') %>

@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091109134108) do
+ActiveRecord::Schema.define(:version => 20091122104409) do
+
+  create_table "snips", :force => true do |t|
+    t.string   "command"
+    t.string   "note"
+    t.string   "uri"
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "original_id"
+  end
+
+  add_index "snips", ["user_id", "command"], :name => "index_waves_on_user_id_and_command", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",             :null => false
@@ -24,17 +36,5 @@ ActiveRecord::Schema.define(:version => 20091109134108) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
-
-  create_table "waves", :force => true do |t|
-    t.string   "command"
-    t.string   "note"
-    t.string   "uri"
-    t.integer  "user_id",     :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "original_id"
-  end
-
-  add_index "waves", ["user_id", "command"], :name => "index_waves_on_user_id_and_command", :unique => true
 
 end

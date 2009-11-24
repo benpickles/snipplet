@@ -1,9 +1,0 @@
-<% content_for :title do %>Edit `<%=h @wave.command %>`<% end %>
-
-<h2>Edit Wave</h2>
-
-<%= render :partial => 'form' %>
-
-<div class="buttons">
-  <%= button_to 'Delete', @wave, { :confirm => 'Are you sure?', :method => :delete } %>
-</div>

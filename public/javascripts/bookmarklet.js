@@ -1,12 +1,11 @@
-function sinewave(username) {
+function snipplet(username) {
   // Alias these for ultra-optimised minification.
   var w = window;
   var d = document;
   var e = encodeURIComponent;
 
   // Command prompt.
-  var prompt = w.prompt('sinewaveapp.com/' + username + ':');
-
+  var prompt = w.prompt('snipplet.it/' + username + ':');
   var query = prompt.split(/\s+/);
   var command = query.shift();
   var location = w.location;
@@ -29,7 +28,7 @@ function sinewave(username) {
   ];
 
   // On your marks...
-  var url = 'http://sinewaveapp.com/' + username + '/' + command + '?' + parameters.join('&');
+  var url = 'http://snipplet.it/' + username + '/' + command + '?' + parameters.join('&');
 
   // Go!
   location.href = url;

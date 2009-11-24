@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   RESERVED_USERNAMES = %w(
     about account admin favicon help images javascripts login logout robots
-    stylesheets user_sessions waves
+    snips stylesheets user_sessions
   )
 
   acts_as_authentic do |c|
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       :message => 'should include only letters, numbers, "-" or "_"'
   end
 
-  has_many :waves, :dependent => :destroy
+  has_many :snips, :dependent => :destroy
 
   validate :reject_reserved_usernames
 

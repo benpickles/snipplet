@@ -1,0 +1,9 @@
+<% content_for :title do %>Edit `<%=h @snip.command %>`<% end %>
+
+<h2>Edit Snip</h2>
+
+<%= render :partial => 'form' %>
+
+<div class="buttons">
+  <%= button_to 'Delete', @snip, { :confirm => 'Are you sure?', :method => :delete } %>
+</div>

@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :account
-  map.resources :waves, :member => { :copy => :post }
+  map.resources :snips, :member => { :copy => :post }
 
-  map.root :controller => :waves
+  map.root :controller => :snips
 
   map.resources :user_sessions, :only => [:create, :destroy, :new]
   map.with_options :controller => :user_sessions do |users|
@@ -10,8 +10,8 @@ ActionController::Routing::Routes.draw do |map|
     users.logout 'logout', :action => :destroy
   end
 
-  map.with_options :controller => :user_waves do |m|
-    m.user_waves ':username.:format', :action => :index
-    m.user_wave ':username/:command', :action => :run
+  map.with_options :controller => :user_snips do |m|
+    m.user_snips ':username.:format', :action => :index
+    m.user_snip ':username/:command', :action => :run
   end
 end

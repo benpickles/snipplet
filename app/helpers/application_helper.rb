@@ -1,9 +1,9 @@
 require 'digest/md5'
 
 module ApplicationHelper
-  def bookmarklet(user, text = "sinewave/#{user.username}")
+  def bookmarklet(user, text = "snipplet/#{user.username}")
     href = 'javascript:'
-    href << "sinewave('#{user.username}');" if user
+    href << "snipplet('#{user.username}');" if user
     href << bookmarklet_href
 
     link_to(text, href, :class => 'bookmarklet')
@@ -18,9 +18,9 @@ module ApplicationHelper
     end
   end
 
-  def copy_wave_button(wave)
+  def copy_snip_button(snip)
     return unless current_user
-    button_to('Copy to my waves', copy_wave_path(wave)) if wave.user != current_user
+    button_to('Copy to my snips', copy_snip_path(snip)) if snip.user != current_user
   end
 
   def google_analytics_javascript

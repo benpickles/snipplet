@@ -5,7 +5,7 @@
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
-  :key         => '_sinewaveapp_session',
+  :key         => '_snipplet_session',
   :secret      => '08af05bbd4b460f888c825301c8c72992d1782c6c4f0d45c298d6f14beb9c190c55caf4e1d4ef0bb92eb4670130c26b5e4695cd9a8769e506685314f2ac680eb'
 }
 
